@@ -11,10 +11,14 @@ class CountryVC: UIViewController {
 
     @IBOutlet private weak var table: UITableView!
     
+    let viewModel = CountyVM()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        table.register(UINib(nibName: "\(ListCell.self)", bundle: nil), forCellReuseIdentifier: "\(ListCell.self)")
+        viewModel.configureList()
+        
     }
     
 
@@ -24,11 +28,13 @@ class CountryVC: UIViewController {
 
 extension CountryVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.listItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(ListCell.self)") as! ListCell
+        cell.configure(data: viewModel.listItems[indexPath.row])
+        return cell
     }
     
     

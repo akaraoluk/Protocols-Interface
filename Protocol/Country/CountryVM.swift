@@ -13,8 +13,8 @@ class CountyVM {
     
     func configureList() {
         listItems = [Country(name: "England", flag: "flag1"),
-                     Country(name: "England", flag: "flag1"),
-                     Country(name: "England", flag: "flag1"),
-                     Country(name: "England", flag: "flag1")]
+                     Country(name: "Germany", flag: "flag2"),
+                     Country(name: "Italy", flag: "flag3"),
+                     Country(name: "Spain", flag: "flag4")]
     }
 }

@@ -7,21 +7,19 @@
 
 import UIKit
 
+protocol ListCellProtocol {
+    var iconName: String { get }
+    var titleText: String { get }
+}
+
 class ListCell: UITableViewCell {
 
     @IBOutlet private weak var iconImage: UIImageView!
-    @IBOutlet private weak var titleLabel: NSLayoutConstraint!
+    @IBOutlet weak var titleLabel: UILabel!
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configure(data: ListCellProtocol) {
+        titleLabel.text = data.titleText
+        iconImage.image = UIImage(named: data.iconName)
     }
     
 }

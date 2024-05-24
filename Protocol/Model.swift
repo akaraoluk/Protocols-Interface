@@ -7,9 +7,18 @@
 
 import Foundation
 
-struct Country {
+struct Country: ListCellProtocol {
     let name: String
     let flag: String
+    
+    var iconName: String {
+        flag
+    }
+    
+    var titleText: String {
+        name
+    }
+    
 }
 
 struct League {
