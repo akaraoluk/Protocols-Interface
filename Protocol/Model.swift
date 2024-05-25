@@ -21,9 +21,17 @@ struct Country: ListCellProtocol {
     
 }
 
-struct League {
+struct League: ListCellProtocol {
     let name: String
     let logo: String
+    
+    var iconName: String {
+        logo
+    }
+    
+    var titleText: String {
+        name
+    }
 }
 
 struct Club {

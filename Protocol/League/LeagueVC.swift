@@ -1,17 +1,17 @@
 //
-//  CountryVC.swift
+//  LeagueVC.swift
 //  Protocol
 //
-//  Created by Abdurrahman Karaoluk on 24.05.2024.
+//  Created by Abdurrahman Karaoluk on 25.05.2024.
 //
 
 import UIKit
 
-class CountryVC: UIViewController {
-
-    @IBOutlet private weak var table: UITableView!
+class LeagueVC: UIViewController {
     
-    let viewModel = CountyVM()
+    @IBOutlet private weak var table: UITableView!
+
+    let viewModel = LeagueVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class CountryVC: UIViewController {
 
 }
 
-extension CountryVC: UITableViewDelegate, UITableViewDataSource {
+extension LeagueVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.listItems.count
     }
@@ -37,8 +37,5 @@ extension CountryVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "LeagueVC") as! LeagueVC
-        navigationController?.show(controller, sender: nil)
-    }
+    
 }
